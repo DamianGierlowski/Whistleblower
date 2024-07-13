@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form method="post" class="form-group login-form">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+
+            <h1 class="h3 mb-3 font-weight-normal">{{ 'form.login.title'|trans }}</h1>
+            <label for="username">{{ 'form.login.fields.email'|trans }}</label>
+            <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control form-control-lg" autocomplete="email" required autofocus>
+            <label for="password">{{ 'form.login.fields.password'|trans }}</label>
+            <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+
+            <div class="d-flex justify-content-center mt-5">
+                <button class="btn btn-primary btn-block" type="submit">
+                    {{ 'form.login.submit'|trans }}
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+form:
+  login:
+    title: Login
+    submit: Sign In
+    fields:
+      email: e-mail
+      password: password
+
